@@ -22,7 +22,9 @@ def get_clients():
 #How much time will it take to the client to get his service?
 @app.route('/api/estimatedtime', methods=['POST'])
 def get_estimated_time():
-    return decisiontree.decisionTree(request.json)
+    historical = requests.get('http://localhost:4321/api/serviceconsumptions/serviceConsumption')
+    delay = decisiontree.decisionTree(historical.json(), request.json)
+    return {'request': delay}
 
 
 if __name__ == '__main__':
