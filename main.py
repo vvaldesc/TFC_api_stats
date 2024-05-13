@@ -17,5 +17,12 @@ def get_estimated_time():
     delay = decisiontree.decisionTree(historical.json(), request.json)
     return {'request': delay}
 
+#How much time will it take to the client to get his service?
+@app.route('/api/estimatedtime/fiability', methods=['POST'])
+def get_roc_curve():
+    historical = requests.get('http://localhost:4321/api/serviceconsumptions/serviceConsumptions')
+    delay = decisiontree.decisionTree(historical.json(), request.json, test=True)
+    return {'request': delay}
+
 if __name__ == '__main__':
     app.run(debug=True)

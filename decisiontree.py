@@ -6,7 +6,9 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.ensemble import RandomForestRegressor
 
-def decisionTree(historical, request):
+import ROC
+
+def decisionTree(historical, request, test = False):
     # Convert historical data into a DataFrame
     historical_data = pd.DataFrame(historical["result"])
 
@@ -46,6 +48,10 @@ def decisionTree(historical, request):
 
     # Make the prediction
     prediction = model.predict(request_data)
+    
+    # if test:
+    #     (fpr, tpr, roc_auc) = ROC.ROC_curve(model, X_test, y_test)
+    #     prediction_json = json.dumps({'estimated_delay': prediction[0], 'fpr': fpr, 'tpr': tpr, 'roc_auc': roc_auc})        
 
     # Convert the prediction to JSON and return
     prediction_json = json.dumps({'estimated_delay': prediction[0]})
