@@ -6,9 +6,11 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.ensemble import RandomForestRegressor
 
-def decisionTree(historical, request):
+import regression_model_test
+
+def decisionTree(historical, request, test = False):
     # Convert historical data into a DataFrame
-    historical_data = pd.DataFrame(historical["result"])
+    historical_data = pd.DataFrame(historical["result"]["serviceConsumptions"])
 
     # Separate features (X) and target variable (y)
     X = historical_data.drop(["delay", "_id", "created_at", "updated_at"], axis=1)  # Exclude non-numeric and target columns
@@ -46,8 +48,14 @@ def decisionTree(historical, request):
 
     # Make the prediction
     prediction = model.predict(request_data)
+    
+    if test:
+        (mse, rmse, mae, r2) = regression_model_test.RMT_testing(model, X_test, y_test)
+        prediction_json = json.dumps({'estimated_delay': prediction[0], 'mse': mse, 'rmse': rmse, 'mae': mae, 'r2': r2})
+    else:
+        prediction_json = json.dumps({'estimated_delay': prediction[0]})
 
     # Convert the prediction to JSON and return
-    prediction_json = json.dumps({'estimated_delay': prediction[0]})
+    # prediction_json = json.dumps({'estimated_delay': prediction[0]})
 
     return prediction_json
