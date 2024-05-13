@@ -1,1 +1,1 @@
-pip install flask scikit-learn pandas requests
+pip install -r requirements.txt
