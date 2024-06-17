@@ -35,6 +35,11 @@ def train_model():
     historical = requests.get('http://localhost:4321/api/serviceConsumptions/serviceConsumptions')
     delay = regressiontree.regressiontree(historical.json(), request.json, loadTrained = False, test=True)
     return delay
+
+#say hi
+@app.route('/api/hi', methods=['GET'])
+def hi():
+    return 'Hola mundo'
     
 
 if __name__ == '__main__':
