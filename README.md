@@ -107,10 +107,6 @@ Tests can be performed using the `regression_model_test.py` script, which calcul
 - Mean Absolute Error (MAE)
 - Coefficient of Determination (R²)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
 For any inquiries, please reach out to me via [email](mailto:vvaldescobos@gmail.com).
