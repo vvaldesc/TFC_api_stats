@@ -125,6 +125,3 @@ For any inquiries, please reach out to me via [email](mailto:youremail@example.c
 <p align="center">
   Made with ❤️ by <a href="https://github.com/vvaldesc">vvaldesc</a>
 </p>
-```
-
-Feel free to adjust any links, email addresses, or other details as necessary. This version includes more structure, readability enhancements, and additional information to make it look more professional.
