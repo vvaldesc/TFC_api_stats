@@ -1,4 +1,4 @@
-```markdown
+
 # Service Time Estimation API
 
 Welcome to the Service Time Estimation API! This API uses a regression model based on a Regression Tree to predict the estimated service time in a hairdressing and aesthetics academy. This project was created as part of my TFC.
@@ -17,7 +17,6 @@ Welcome to the Service Time Estimation API! This API uses a regression model bas
 - [Testing](#testing)
 
 ## Requirements
-```
 
 To install the required packages, run the following command:
 
