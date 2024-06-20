@@ -39,7 +39,7 @@ The API offers several endpoints:
 To run the API, execute the following command:
 
 ```sh
-python app.py
+python main.py
 ```
 
 If this fails, use a custom environment by running `.\flask_start.ps1` with PowerShell and installig dependencies to this envoirment.
