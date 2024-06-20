@@ -111,11 +111,6 @@ Tests can be performed using the `regression_model_test.py` script, which calcul
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgements
-
-- Special thanks to the contributors and the open-source community.
-- [Project Repository](https://github.com/vvaldesc/TFC_gestor_academia)
-
 ## Contact
 
 For any inquiries, please reach out to me via [email](mailto:vvaldescobos@gmail.com).
