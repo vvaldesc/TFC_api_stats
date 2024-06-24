@@ -25,16 +25,24 @@ def get_estimated_time_noTrain():
 #How much time will it take to the client to get his service?
 @app.route('/api/estimatedtime/fiability', methods=['POST'])
 def get_roc_curve():
-    historical = requests.get('http://localhost:4321/api/serviceConsumptions/serviceConsumptions')
-    delay = regressiontree.regressiontree(historical.json(), request.json, test=True, loadTrained = True)
-    return delay
+    if app.config["ENV"] == "development":
+        historical = requests.get('http://localhost:4321/api/serviceConsumptions/serviceConsumptions')
+        delay = regressiontree.regressiontree(historical.json(), request.json, test=True, loadTrained = True)
+        return delay
+    else:
+        return "Not in development mode."
 
 #Train my model
 @app.route('/api/estimatedtime/train', methods=['POST'])
 def train_model():
-    historical = requests.get('http://localhost:4321/api/serviceConsumptions/serviceConsumptions')
-    delay = regressiontree.regressiontree(historical.json(), request.json, loadTrained = False, test=True)
-    return delay
+    # Is the app in development mode?
+    if app.config["ENV"] == "development":
+        historical = requests.get('http://localhost:4321/api/serviceConsumptions/serviceConsumptions')
+        delay = regressiontree.regressiontree(historical.json(), request.json, loadTrained=False, test=True)
+        return delay
+    else:
+        return "Not in development mode."
+
 
 #say hi
 @app.route('/api/hi', methods=['GET'])
