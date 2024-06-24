@@ -86,8 +86,8 @@ An example POST body:
                 "client_phone_number": "123456789",
                 "teacher_phone_number": "222222222",
                 "student_phone_number": null,
-                "client_email": "victorvaldescobos@gmail.com",
-                "teacher_email": "emilyjohnson@example.com",
+                "client_email": "example@example.com",
+                "teacher_email": "example@example.com",
                 "student_email": null,
                 "employee_salary": 400
             }
