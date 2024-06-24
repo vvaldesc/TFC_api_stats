@@ -97,6 +97,12 @@ An example POST body:
 ## Model
 
 The regression model used is a Regression Tree from the `sklearn` package. It is trained with the provided data and then used to make predictions about the service time.
+The model provided in the repository is not trained with real data, in fact it is trained with more than 2000 fake registers with certain sense, it would only be valid if it is trained with real data.
+
+## Training
+
+Through an http request, the model expects a JSON array with a certain structure, the structure that the model expects can be edited in the code.
+The expected structure in the array is similar to the previously mentioned.
 
 ## Testing
 
