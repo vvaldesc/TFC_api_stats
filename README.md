@@ -14,6 +14,7 @@ Welcome to the Service Time Estimation API! This API uses a regression model bas
 - [Running](#running)
 - [Data](#data)
 - [Model](#model)
+- [Training](#training)
 - [Testing](#testing)
 
 ## Requirements
