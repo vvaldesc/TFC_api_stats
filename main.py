@@ -13,6 +13,9 @@ USE_SAMPLE_DATA = os.environ.get("USE_SAMPLE_DATA", "False")
 app = Flask(__name__)
 CORS(app)
 
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))  # Usa el puerto definido por Render o 5000 por defecto
+    app.run(host='0.0.0.0', port=port, debug=False)  # Asegúrate de desactivar el modo debug en producción
 # CORS(app, resources={r"/api/*": {"origins": "https://localhost:4322"}})
 
 #How much time will it take to the client to get his service?
@@ -53,6 +56,3 @@ def train_model():
 def hi():
     return 'Hola mundo'
     
-
-if __name__ == '__main__':
-    app.run(debug=False, port=5000)
