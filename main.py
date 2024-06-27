@@ -13,7 +13,7 @@ USE_SAMPLE_DATA = os.environ.get("USE_SAMPLE_DATA", "False")
 app = Flask(__name__)
 CORS(app)
 
-CORS(app, resources={r"/api/*": {"origins": "https://localhost:4322"}})
+# CORS(app, resources={r"/api/*": {"origins": "https://localhost:4322"}})
 
 #How much time will it take to the client to get his service?
 @app.route('/api/estimatedtime', methods=['POST'])
@@ -55,4 +55,4 @@ def hi():
     
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, port=5000)
