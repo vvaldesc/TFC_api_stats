@@ -112,6 +112,8 @@ The model provided in the repository is not trained with real data, in fact it i
 Through an http request, the model expects a JSON array with a certain structure, the structure that the model expects can be edited in the code.
 The expected structure in the array is similar to the previously mentioned.
 
+When training, the new model name will end in 'test', so you have to rename it to 'model' if you really want to use it
+
 ## Developing
 
 To correctly develop this app, would suggest to turn Flask debug mode on.
@@ -133,6 +135,13 @@ Tests can be performed using the `regression_model_test.py` script, which calcul
 - Root Mean Squared Error (RMSE)
 - Mean Absolute Error (MAE)
 - Coefficient of Determination (R²)
+
+This are the default testing results:
+
+- `mse`: 27.058695750000002,
+- `rmse`: 5.201797357644759,
+- `mae`: 3.995375,
+- `r2`: 0.2489379443577333
 
 ## Contact
 
