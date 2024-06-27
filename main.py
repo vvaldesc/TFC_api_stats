@@ -11,12 +11,9 @@ FLASK_ENV = os.environ.get("FLASK_ENV", "False")
 USE_SAMPLE_DATA = os.environ.get("USE_SAMPLE_DATA", "False")
 
 app = Flask(__name__)
-# CORS(app)
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Usa el puerto definido por Render o 5000 por defecto
-    app.run(host='0.0.0.0', port=port, debug=False)  # Asegúrate de desactivar el modo debug en producción
+    
 CORS(app, resources={r"/*": {"origins": "*"}})
+
 #How much time will it take to the client to get his service?
 @app.route('/api/estimatedtime', methods=['POST'])
 def get_estimated_time():
@@ -58,4 +55,8 @@ def home():
 @app.route('/favicon.ico')
 def favicon():
     return '', 204  # No content response
-    
+
+# CORS(app)
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))  # Usa el puerto definido por Render o 5000 por defecto
+    app.run(host='0.0.0.0', port=port, debug=False)  # Asegúrate de desactivar el modo debug en producción
