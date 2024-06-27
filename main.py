@@ -11,13 +11,12 @@ FLASK_ENV = os.environ.get("FLASK_ENV", "False")
 USE_SAMPLE_DATA = os.environ.get("USE_SAMPLE_DATA", "False")
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # Usa el puerto definido por Render o 5000 por defecto
     app.run(host='0.0.0.0', port=port, debug=False)  # Asegúrate de desactivar el modo debug en producción
-# CORS(app, resources={r"/api/*": {"origins": "https://localhost:4322"}})
-
+CORS(app, resources={r"/*": {"origins": "*"}})
 #How much time will it take to the client to get his service?
 @app.route('/api/estimatedtime', methods=['POST'])
 def get_estimated_time():
@@ -52,7 +51,11 @@ def train_model():
         return "Not in development mode."
 
 #say hi
-@app.route('/api/hi', methods=['GET'])
-def hi():
-    return 'Hola mundo'
+@app.route('/')
+def home():
+    return 'Bienvenido a mi aplicación Flask!'
+
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204  # No content response
     
