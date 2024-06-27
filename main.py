@@ -1,5 +1,5 @@
 #
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
 import json
 import regressiontree
 import requests
@@ -54,7 +54,7 @@ def home():
 
 @app.route('/favicon.ico')
 def favicon():
-    return '', 204  # No content response
+    return send_from_directory('public/icon', 'photo_1.png', mimetype='image/png')
 
 # CORS(app)
 if __name__ == '__main__':
