@@ -43,7 +43,7 @@ def train_model():
         else:
             response = requests.get('http://localhost:4321/api/serviceConsumptions/serviceConsumptions')
             historical = response.json()
-        delay = regressiontree.regressiontree(historical, request.json, test=True, loadTrained=False, test=True)
+        delay = regressiontree.regressiontree(historical, request.json, loadTrained=False, test=True)
         return delay
     else:
         return "Not in development mode."
