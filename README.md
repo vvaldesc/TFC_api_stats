@@ -145,6 +145,8 @@ This are the default testing results:
 
 ## Contact
 
+Deploy with pythonAnyWhere
+
 For any inquiries, please reach out to me via [email](mailto:vvaldescobos@gmail.com).
 
 ---
